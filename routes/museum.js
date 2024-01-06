@@ -55,4 +55,13 @@ router.put('/:ID', async(req, res) => {
     }
 })
 
+router.get('/:id', async(req, res)=>{
+    try{
+        const museum = await Museum.findById(req.params.id)
+        res.status(200).json(museum)
+    } catch(error){
+        res.status(500).json(error)
+    }
+})
+
 module.exports = router
